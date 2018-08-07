@@ -1,0 +1,32 @@
+# Common editor swap files
+*.swp
+*~
+*\#*
+
+# Built
+*.tgz
+package-lock.json
+node_modules
+
+# Files marked as being local to the user’s/dev’s machine.
+*.local
+*.user
+
+#BEGIN_NPMIGNORE_EXCLUDE
+.npmignore
+*.js
+
+# Ignore built declaration files
+*.d.ts
+# But not ones in directories called “types”.
+!**/types/*.d.ts
+
+*.map
+#END_NPMIGNORE_EXCLUDE
+
+#BEGIN_NPMIGNORE_INCLUDE
+## Exclude .ts files but not definitions from published.
+#*.ts
+#!*.d.ts
+#*.tsx
+#END_NPMIGNORE_INCLUDE
