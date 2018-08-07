@@ -59,7 +59,7 @@ Put your compilation and call to this sript in the `prepare` hook which is autom
 ```json
 {
   "devDependencies": {
-    "@brinkdevteam/derive-npmignore": "^1.0.0",
+    "@brinkdevteam/derive-npmignore": "^1.1.0",
     "typescript": "^3.0.1"
   },
   "scripts": {
