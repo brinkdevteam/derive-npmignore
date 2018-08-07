@@ -4,7 +4,7 @@
   },
   "name": "@brinkdevteam/derive-npmignore",
   "version": "1.0.0",
-  "description": "Drive .npmignore from .gitignore with certain lines omitted as a build script",
+  "description": "Derive .npmignore from .gitignore with certain lines omitted as a build script",
   "scripts": {
     "prepare": "tsc -d && node ./bin/derive-npmignore.js"
   },
