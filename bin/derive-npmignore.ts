@@ -25,9 +25,49 @@ function writeFileAsync(path: string, text: string) {
   });
 }
 
+function getArgs(argv: string[], opts: {
+  [key: string]: () => boolean;
+}) {
+  const args = [];
+  let escaped = false;
+  for (const arg of argv.slice(2)) {
+    if (!escaped) {
+      if (arg === '--') {
+        escaped = true;
+        continue;
+      }
+      if (opts[arg] !== undefined) {
+        if (opts[arg]()) {
+          continue;
+        } else {
+          return;
+        }
+      }
+      if (arg[0] === '-') {
+        throw new Error(`Argument “${arg}” not supported. See README for usage instructions.`);
+      }
+    }
+    args.push(arg);
+  }
+  return args;
+}
+
 void (async () => {
   try {
-    const text = await readFileAsync('.gitignore');
+    const args = getArgs(process.argv, {
+      '-h': () => {
+        console.log(`Usage: ${process.argv[1]} [-h] [--] [path-to-.gitignore [path-to-.npmignore]]`);
+        return false;
+      },
+    });
+    if (args === undefined) {
+      return;
+    }
+
+    const inputFile = args.length > 0 ? args[0] : '.gitignore';
+    const outputFile = args.length > 1 ? args[1] : '.npmignore';
+
+    const text = await readFileAsync(inputFile);
     const replacedText = text.replace(/^#BEGIN_NPMIGNORE_EXCLUDE$[^]*^#END_NPMIGNORE_EXCLUDE$/gm, '').replace(/^#BEGIN_NPMIGNORE_INCLUDE$([^]*)^#END_NPMIGNORE_INCLUDE$/gm, (match, body: string) => {
       // Empty strings don’t split well, so just don’t deal with it.
       if (body.length < 0) {
@@ -54,9 +94,9 @@ void (async () => {
       }).join('');
     });
     if (replacedText === text) {
-      console.warn(`brinkdevteam-derive-npmignore: No regions of .gitignore were altered when building .npmignore`);
+      console.warn(`brinkdevteam-derive-npmignore: No regions of .gitignore were altered when building “${outputFile}”`);
     }
-    await writeFileAsync('.npmignore', replacedText);
+    await writeFileAsync(outputFile, replacedText);
   } catch (ex) {
     // tslint:disable-next-line:no-console
     console.log(`brinkdevteam-derive-npmignore:`, ex);

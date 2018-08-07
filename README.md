@@ -70,12 +70,18 @@ Put your compilation and call to this sript in the `prepare` hook which is autom
 
 # Usage
 
-`brinkdevteam-derive-npmignore [path-to-.gitignore [path-to-.npmignore]]`
+`brinkdevteam-derive-npmignore [-h] [--] [path-to-.gitignore [path-to-.npmignore]]`
 
-* `path-to-.gitignore`: (Default: `.gitignore`) You may supply the path to the `.gitignore`
-  file to use as a template. For example, in one of my projects, that
-  is `../../.gitignore`. Regardless of the path to `.gitignore`,
-  `.npmignore` will be output to the current directory by default.
+* `-h`: Prints the basic usage line and exits.
+
+* `--`: Disabled interpretation of `-` for the remainder of the
+  arguments. Useful if you may refer to paths starting with `-`.
+
+* `path-to-.gitignore`: (Default: `.gitignore`) You may supply the
+  path to the `.gitignore` file to use as a template. For example, in
+  one of my projects, that is `../../.gitignore`. Regardless of the
+  path to `.gitignore`, `.npmignore` will be output to the current
+  directory by default.
 
 * `path-to-.npmignore`: (Default: `.npmignore`) You may supply an
   alternate output path for the `.npmignore`. For example, you may
