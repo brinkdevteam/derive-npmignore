@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/binki/derive-npmignore.git"
+    "url": "git+https://github.com/brinkdevteam/derive-npmignore.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/binki/derive-npmignore/issues"
+    "url": "https://github.com/brinkdevteam/derive-npmignore/issues"
   },
-  "homepage": "https://github.com/binki/derive-npmignore#readme",
+  "homepage": "https://github.com/brinkdevteam/derive-npmignore#readme",
   "devDependencies": {
     "@types/node": "^10.5.7",
     "typescript": "^3.0.1"
