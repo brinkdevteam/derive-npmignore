@@ -7,7 +7,7 @@
   "description": "Derive .npmignore from .gitignore with certain lines omitted as a build script",
   "scripts": {
     "prepare": "tsc -d && node ./bin/derive-npmignore.js",
-    "test": "tsc && ts-mocha \"{,!(node_modules)/**}/*.test.ts\""
+    "test": "tsc && tslint -p . && ts-mocha \"{,!(node_modules)/**}/*.test.ts\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "@types/node": "^10.5.7",
     "mocha": "^6.2.0",
     "ts-mocha": "^6.0.0",
+    "tslint": "^5.20.0",
     "typescript": "^3.0.1"
   }
 }

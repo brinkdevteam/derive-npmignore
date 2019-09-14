@@ -34,6 +34,7 @@ void (async () => {
   try {
     const args = getArgs(process.argv, {
       '-h': () => {
+        // tslint:disable-next-line:no-console
         console.log(`Usage: ${process.argv[1]} [-h] [--] [path-to-.gitignore [path-to-.npmignore]]`);
         return false;
       },

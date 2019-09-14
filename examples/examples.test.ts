@@ -1,19 +1,19 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
+import * as mocha from 'mocha';
+import * as path from 'path';
 import {
   deriveNpmignoreAsync,
   readFileAsync,
 } from '../index';
-import * as mocha from 'mocha'
-import * as path from 'path';
 
-mocha.describe('examples', function () {
+mocha.describe('examples', () => {
   for (const entry of fs.readdirSync(__dirname)) {
     const entryMatches = /(.*)\.gitignore$/.exec(entry);
     if (entryMatches !== null) {
       const basename = entryMatches[1];
-      mocha.describe(`${basename}`, function () {
-        mocha.it('generates the expected output', async function () {
+      mocha.describe(`${basename}`, () => {
+        mocha.it('generates the expected output', async () => {
           const inputPath = path.join(__dirname, entry);
           const expectedPath = path.join(__dirname, `${basename}.npmignore`);
           // Something that matches .gitignore.
