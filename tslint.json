@@ -1,9 +1,12 @@
 {
-
   "extends": [
     "tslint:recommended"
   ],
   "rules": {
-    "quotemark": [true, "single"]
+    "await-promise": true,
+    "no-floating-promises": true,
+    "no-promise-as-boolean": true,
+    "quotemark": [true, "single"],
+    "strict-boolean-expressions": true
   }
 }
