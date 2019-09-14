@@ -4,7 +4,7 @@ Thus, one option you have is to maintain both `.gitignore` and `.npmignore`.
 However, this duplicates code.
 
 With this script, you have a second option.
-Write `.gitignore`, mark a few lines as excluded from `.npmgignore`, and you’re done!
+Write `.gitignore`, mark a few lines as excluded from `.npmignore`, and you’re done!
 
 The script provided by this package, `brinkdevteam-derive-npmignore`, will automatically read your `.gitignore`, filter out any lines between `#BEGIN_NPMIGNORE_EXCLUDE` and `#END_NPMIGNORE_EXCLUDE`, and output the result to `.npmignore`.
 It will also take any lines between `#BEGIN_NPMIGNORE_INCLUDE` and `#END_NPMIGNORE_INCLUDE` and remove exactly one `#` from the beginning of each line.
