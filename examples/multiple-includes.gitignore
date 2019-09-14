@@ -1,0 +1,18 @@
+*.swp
+*~
+*\#*
+
+#BEGIN_NPMIGNORE_INCLUDE
+## Exclude TypeScript source in package because it confuses consumers.
+#*.ts
+#!*.d.ts
+#*.tsx
+#END_NPMIGNORE_INCLUDE
+
+# Ignore random Visual Studio temp files.
+*.vs
+
+#BEGIN_NPMIGNORE_INCLUDE
+## Exclude examples from the package because they’re a waste of space.
+#examples/
+#END_NPMIGNORE_INCLUDE

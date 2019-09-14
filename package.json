@@ -6,7 +6,8 @@
   "version": "1.1.2",
   "description": "Derive .npmignore from .gitignore with certain lines omitted as a build script",
   "scripts": {
-    "prepare": "tsc -d && node ./bin/derive-npmignore.js"
+    "prepare": "tsc -d && node ./bin/derive-npmignore.js",
+    "test": "tsc && ts-mocha \"{,!(node_modules)/**}/*.test.ts\""
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,10 @@
   },
   "homepage": "https://github.com/brinkdevteam/derive-npmignore#readme",
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
     "@types/node": "^10.5.7",
+    "mocha": "^6.2.0",
+    "ts-mocha": "^6.0.0",
     "typescript": "^3.0.1"
   }
 }

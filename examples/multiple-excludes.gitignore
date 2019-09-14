@@ -1,0 +1,18 @@
+*.swp
+*~
+*\#*
+
+#BEGIN_NPMIGNORE_EXCLUDE
+# Ignore built files.
+*.js
+#END_NPMIGNORE_EXCLUDE
+
+# Ignore Visual Studio temporary files.
+*.vs
+
+#BEGIN_NPMIGNORE_EXCLUDE
+# Ignore other built files which are totally not related to the earlier ones.
+*.d.ts
+#END_NPMIGNORE_EXCLUDE
+
+# Hey!
